@@ -2,8 +2,11 @@ import anthropic
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 
-ANTHROPIC_KEY = "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"
-TELEGRAM_TOKEN = "8608801274:AAFLogFmpuqif3BR5SggtkgevjYYABmjJIM"
+import os
+ANTHROPIC_KEY = os.environ.get("ANTHROPIC_KEY")
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
+
+
 
 client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
 histories = {}
